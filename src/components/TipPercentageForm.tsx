@@ -1,3 +1,5 @@
+
+
 const tipOptions = [
     {
       id: 'tip-10',
@@ -16,9 +18,11 @@ const tipOptions = [
     },
   ]
 
-type TipPercentageFormProps
+type TipPercentageFormProps = {
+    setTip: React.Dispatch<React.SetStateAction<number>>
+}
 
-export default function TipPercentageForm() {
+export default function TipPercentageForm({setTip} : TipPercentageFormProps) {
   return (
     <div>
       <h3 className="font-black text-2xl"></h3>
@@ -33,6 +37,7 @@ export default function TipPercentageForm() {
                             type="radio"
                             name="tip"
                             value={tip.value}
+                            onChange={e => setTip(+e.target.value)}
                         />
                     </div>
                 ))}
